@@ -21,6 +21,8 @@ phases:
     commands:
       - /opt/gradle/gradle-7.1.1/bin/gradle clean
       - /opt/gradle/gradle-7.1.1/bin/gradle clean build
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Entering post build
