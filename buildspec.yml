@@ -1,0 +1,26 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+    commands:
+      - java -version
+      - gradle -version
+      - echo Installing gradle
+      - wget https://services.gradle.org/distributions/gradle-7.1.1-bin.zip
+      - unzip -d /opt/gradle gradle-7.1.1-bin.zip
+  pre_build:
+    commands:
+      - echo Entering pre build
+  build:
+    commands:
+      - /opt/gradle/gradle-7.1.1/bin/gradle clean
+      - /opt/gradle/gradle-7.1.1/bin/gradle clean build
+  post_build:
+    commands:
+      - echo Entering post build
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build/libs/
+  discard-paths: no
