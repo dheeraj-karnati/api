@@ -17,7 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.headers().cacheControl();
         http.csrf().disable()
-                .authorizeRequests()
+                .cors().and().authorizeRequests()
                 .antMatchers("**/health").permitAll()
                 .antMatchers("/api/**").authenticated()
                 //.anyRequest().authenticated()
