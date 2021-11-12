@@ -8,3 +8,16 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+ekinsol:
+  s3:
+    bucketName: comet2-infra-tfstate
+    objectKey: test
+    kmsKeyId: test
+    region: us-east-1
+
+
+aws:
+  access_key_id: ''
+  secret_access_key: ''
+  s3:
+    region : us-east-1
