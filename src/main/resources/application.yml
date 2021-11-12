@@ -7,7 +7,7 @@ com:
 
 spring:
   datasource:
-    url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/dev
+    url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/rdsdev
     username: dev
     password: dev
     driver-class-name: "org.postgresql.Driver"
@@ -16,3 +16,18 @@ spring:
 
 flyway:
   locations: "classpath:db/migration"
+
+
+ekinsol:
+  s3:
+    bucketName: comet2-infra-tfstate
+    objectKey: test
+    kmsKeyId: test
+    region: us-east-1
+
+
+aws:
+  access_key_id: AKIASLFRVI3PX4CJXQ5T
+  secret_access_key: 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
+  s3:
+    region : us-east-1

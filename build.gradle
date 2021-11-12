@@ -39,6 +39,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.nimbusds:nimbus-jose-jwt:9.15.1'
 	implementation 'org.flywaydb:flyway-core'
+	implementation platform("com.amazonaws:aws-java-sdk-bom:1.12.5")
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.12.5'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
