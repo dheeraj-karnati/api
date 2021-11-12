@@ -7,7 +7,7 @@ com:
 
 spring:
   datasource:
-    url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/dev
+    url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/rdsdev
     username: dev
     password: dev
     driver-class-name: "org.postgresql.Driver"
