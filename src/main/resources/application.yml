@@ -13,6 +13,22 @@ spring:
     driver-class-name: "org.postgresql.Driver"
   flyway:
     locations: "classpath:db/migration"
+  mail:
+    host: email-smtp.us-east-1.amazonaws.com
+    username: AKIASLFRVI3PSJEX5LOB
+    password: BGD4GhnncgXoyFfl5leALI5gHsKdoyZPcgjVMALRpsD+
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          port: 587
+          auth: true
+          startttls:
+            enable: true
+            required: true
+
+
 
 flyway:
   locations: "classpath:db/migration"
@@ -25,9 +41,21 @@ ekinsol:
     kmsKeyId: test
     region: us-east-1
 
+from:
+  email:
+    address: dkarnati@ekinsol.com
 
 aws:
   access_key_id: AKIASLFRVI3PX4CJXQ5T
   secret_access_key: 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
   s3:
-    region : us-east-1
+    region: us-east-1
+
+management:
+  metrics:
+    export:
+      wavefront:
+        sender:
+          max-queue-size:
+
+
