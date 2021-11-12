@@ -1,7 +1,8 @@
 package com.ekinsol.challenge.apiservice.controller;
 
-import com.ekinsol.challenge.apiservice.IGCEService;
 import com.ekinsol.challenge.apiservice.bo.CostItem;
+import com.ekinsol.challenge.apiservice.service.IGCEService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,10 +11,10 @@ import java.util.List;
 @RestController
 public class IGCEController {
 
-    private final IGCEService igceService;
+//    @Autowired
+    private IGCEService igceService;
 
-    public IGCEController(IGCEService igceService) {
-        this.igceService = igceService;
+    public IGCEController() {
     }
 
     @GetMapping("/costitems")

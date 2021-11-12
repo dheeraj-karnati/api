@@ -1,4 +1,4 @@
-package com.ekinsol.challenge.apiservice;
+package com.ekinsol.challenge.apiservice.service;
 
 import com.ekinsol.challenge.apiservice.bo.CostItem;
 import org.springframework.stereotype.Service;
@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Service
-public class IGCEServiceImpl implements IGCEService {
+//@Service
+public class IGCEService {
 
     private static BigDecimal NO_OF_HOURS = BigDecimal.valueOf(1820);
     private static BigDecimal INFLATION_PRICE = BigDecimal.valueOf(1.04);
@@ -24,7 +24,6 @@ public class IGCEServiceImpl implements IGCEService {
         ROLE_PRICE_MAP.put("Product Designer (senior)", BigDecimal.valueOf(152.45));
     }
 
-    @Override
     public List<CostItem> getCostEstimation() {
         List<CostItem> costItems = ROLE_PRICE_MAP.entrySet().stream().map(entry -> createCostItem(entry.getKey(), entry.getValue())).collect(Collectors.toList());
         return costItems;
