@@ -10,6 +10,7 @@ spring:
     url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/dev
     username: dev
     password: dev
+    driver-class-name: "org.postgresql.Driver"
   flyway:
     locations: "classpath:db/migration"
 
