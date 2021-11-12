@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class IGCEController {
 
-//    @Autowired
+    @Autowired
     private IGCEService igceService;
 
     public IGCEController() {

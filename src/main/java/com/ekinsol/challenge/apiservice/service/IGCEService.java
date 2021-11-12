@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-//@Service
+@Service
 public class IGCEService {
 
     private static BigDecimal NO_OF_HOURS = BigDecimal.valueOf(1820);
