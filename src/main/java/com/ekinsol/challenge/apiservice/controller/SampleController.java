@@ -10,4 +10,9 @@ public class SampleController {
     public String greeting() {
         return "Test integration";
     }
+
+    @GetMapping(path = "/api/hello")
+    public String getResp(){
+        return  "Protected request";
+    }
 }

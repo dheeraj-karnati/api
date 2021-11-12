@@ -1,0 +1,7 @@
+com:
+  ekinsol:
+    jwt:
+      aws:
+        userPoolId: "us-east-1_KgWxNIcrp"
+        region: "us-east-1"
+
