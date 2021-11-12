@@ -2,6 +2,16 @@ com:
   ekinsol:
     jwt:
       aws:
-        userPoolId: "us-east-1_KgWxNIcrp"
+        userPoolId: "us-east-1_t0NwjXiUy"
         region: "us-east-1"
 
+spring:
+  datasource:
+    url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/dev
+    username: dev
+    password: dev
+  flyway:
+    locations: "classpath:db/migration"
+
+flyway:
+  locations: "classpath:db/migration"
