@@ -6,6 +6,12 @@ com:
         region: "us-east-1"
 
 spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: com.ekinsol.challenge.apiservice.hibernate.ext.CustomHibernatePostgreSqlDialect
+    hibernate:
+      show-sql: true
   datasource:
     url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/rdsdev
     username: dev
