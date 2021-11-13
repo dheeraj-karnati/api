@@ -13,6 +13,7 @@ public class JwtConfiguration {
     private String jwkUrl;
     private String region = "us-east-1";
     private String userNameField = "username";
+    private String groupNameField = "cognito:groups";
     private int connectionTimeout = 2000;
     private int readTimeout = 2000;
     private String httpHeader = "Authorization";
@@ -88,5 +89,13 @@ public class JwtConfiguration {
 
     public void setHttpHeader(String httpHeader) {
         this.httpHeader = httpHeader;
+    }
+
+    public String getGroupNameField() {
+        return groupNameField;
+    }
+
+    public void setGroupNameField(String groupNameField) {
+        this.groupNameField = groupNameField;
     }
 }

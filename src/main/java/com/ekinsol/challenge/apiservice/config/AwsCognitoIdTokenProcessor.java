@@ -2,6 +2,7 @@ package com.ekinsol.challenge.apiservice.config;
 
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.proc.ConfigurableJWTProcessor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Component
+@Slf4j
 public class AwsCognitoIdTokenProcessor {
 
     private final JwtConfiguration jwtConfiguration;
@@ -33,7 +35,12 @@ public class AwsCognitoIdTokenProcessor {
             verifyIfIdToken(claims);
             String username = getUserNameFrom(claims);
             if (username != null) {
-                List<GrantedAuthority> grantedAuthorities = Collections.singletonList( new SimpleGrantedAuthority("ROLE_ADMIN"));
+                List<GrantedAuthority> grantedAuthorities = Collections.singletonList( new SimpleGrantedAuthority("ROLE_USER"));;
+                List<String> userRoles = getGroupsFrom(claims);
+                if(userRoles != null && !userRoles.isEmpty()) {
+                    userRoles.stream().forEach(log::debug);
+                    grantedAuthorities = Collections.singletonList( new SimpleGrantedAuthority("ROLE_ADMIN"));
+                }
                 User user = new User(username, "", Collections.emptyList());
                 return new JwtAuthentication(user, claims, grantedAuthorities);
             }
@@ -43,6 +50,10 @@ public class AwsCognitoIdTokenProcessor {
 
     private String getUserNameFrom(JWTClaimsSet claims) {
         return claims.getClaims().get(this.jwtConfiguration.getUserNameField()).toString();
+    }
+
+    private List<String> getGroupsFrom(JWTClaimsSet claims) {
+        return (List<String>) claims.getClaims().get(this.jwtConfiguration.getGroupNameField());
     }
 
     private void verifyIfIdToken(JWTClaimsSet claims) throws Exception {
