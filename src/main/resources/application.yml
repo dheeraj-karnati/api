@@ -4,7 +4,8 @@ com:
       aws:
         userPoolId: "us-east-1_t0NwjXiUy"
         region: "us-east-1"
-
+server:
+  port: 8081
 spring:
   jpa:
     properties:
@@ -13,16 +14,16 @@ spring:
     hibernate:
       show-sql: true
   datasource:
-    url: jdbc:postgresql://rdsdev-default.chuy89usllmn.us-east-1.rds.amazonaws.com:5432/rdsdev
-    username: dev
-    password: dev
+    url: jdbc:postgresql://localhost:5432/rdsdev
+    username: postgres
+    password: admin123
     driver-class-name: "org.postgresql.Driver"
   flyway:
     locations: "classpath:db/migration"
   mail:
-    host: email-smtp.us-east-1.amazonaws.com
-    username: AKIASLFRVI3PSJEX5LOB
-    password: BGD4GhnncgXoyFfl5leALI5gHsKdoyZPcgjVMALRpsD+
+    host: http://mailhog.ekinsolutions.io/
+    username:
+    password:
     properties:
       mail:
         transport:
