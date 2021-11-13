@@ -11,7 +11,7 @@ plugins {
 
 group = 'com.ekinsol.challenge'
 version = '1.0'
-sourceCompatibility = '11'
+sourceCompatibility = '1.8'
 
 configurations {
 	compileOnly {

@@ -20,7 +20,6 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-
     @Async
     public void sendEmail(String recipient, String subject, String content) throws UnsupportedEncodingException, MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
