@@ -2,7 +2,6 @@ package com.ekinsol.challenge.apiservice.config;
 
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.proc.ConfigurableJWTProcessor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,11 +15,15 @@ import java.util.List;
 @Component
 public class AwsCognitoIdTokenProcessor {
 
-    @Autowired
-    private JwtConfiguration jwtConfiguration;
+    private final JwtConfiguration jwtConfiguration;
 
-    @Autowired
-    private ConfigurableJWTProcessor configurableJWTProcessor;
+    private final ConfigurableJWTProcessor configurableJWTProcessor;
+
+    public AwsCognitoIdTokenProcessor(final JwtConfiguration jwtConfiguration,
+                                      final ConfigurableJWTProcessor configurableJWTProcessor) {
+        this.jwtConfiguration = jwtConfiguration;
+        this.configurableJWTProcessor = configurableJWTProcessor;
+    }
 
     public Authentication authenticate(HttpServletRequest request) throws Exception {
         String idToken = request.getHeader(this.jwtConfiguration.getHttpHeader());

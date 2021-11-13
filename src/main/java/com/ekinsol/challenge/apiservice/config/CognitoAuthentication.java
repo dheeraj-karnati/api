@@ -28,7 +28,7 @@ public class CognitoAuthentication {
     public ConfigurableJWTProcessor configurableJWTProcessor() throws MalformedURLException {
         ResourceRetriever resourceRetriever =
                 new DefaultResourceRetriever(2000, 2000);
-        URL jwkURL = new URL(this.jwtConfiguration.getCognitoIdentityPoolUrl());
+        URL jwkURL = new URL(this.jwtConfiguration.getJwkUrl());
         JWKSource keySource = new RemoteJWKSet(jwkURL, resourceRetriever);
         ConfigurableJWTProcessor jwtProcessor = new DefaultJWTProcessor();
         JWSKeySelector keySelector = new JWSVerificationKeySelector(RS256, keySource);

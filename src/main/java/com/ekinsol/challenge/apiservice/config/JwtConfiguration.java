@@ -12,7 +12,7 @@ public class JwtConfiguration {
     private String identityPoolId;
     private String jwkUrl;
     private String region = "us-east-1";
-    private String userNameField = "cognito:username";
+    private String userNameField = "username";
     private int connectionTimeout = 2000;
     private int readTimeout = 2000;
     private String httpHeader = "Authorization";
@@ -21,7 +21,9 @@ public class JwtConfiguration {
     }
 
     public String getJwkUrl() {
-        return this.jwkUrl != null && !this.jwkUrl.isEmpty() ? this.jwkUrl : String.format("https://cognito-idp.%s.amazonaws.com/%s/.well-known/jwks.json", this.region, this.userPoolId);
+        return this.jwkUrl != null && !this.jwkUrl.isEmpty() ?
+                this.jwkUrl :
+                String.format("https://cognito-idp.%s.amazonaws.com/%s/.well-known/jwks.json", this.region, this.userPoolId);
     }
 
     public String getCognitoIdentityPoolUrl() {
